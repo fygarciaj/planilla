@@ -1,6 +1,6 @@
 import type { Component } from 'solid-js';
 import styles from './App.module.css';
-import { Col, Container, Row } from 'solid-bootstrap';
+import { Card, CardHeader, Col, Container, Row } from 'solid-bootstrap';
 
 const App: Component = () => {
   return (
@@ -8,8 +8,8 @@ const App: Component = () => {
       <Container>
         <Row>
           <Col>
-            <div class="card">
-              <div class="card-header">
+            <Card>
+              <CardHeader>
                 <h4 class="card-title">Planilla de Cierre</h4>
                 <div class="card-tools">
                   <button type="button" class="btn btn-sm">
@@ -19,12 +19,12 @@ const App: Component = () => {
                     <i class="fa fa-address-card" aria-hidden="true"></i>
                   </button>
                 </div>
-              </div>
-              <div class="card-body">
+              </CardHeader>
+              <Card.Body>
                 <div class="row row-col-2">
-                  <div class="col">
-                    <div class="row">
-                      <div class="col">
+                  <Col>
+                    <Row>
+                      <Col>
                         <div class="form-group">
                           <div class="input-group">
                             <input type="text" name="turnIdSearch"
@@ -39,8 +39,8 @@ const App: Component = () => {
                           </div>
                           <small class="text-danger"></small>
                         </div>
-                      </div>
-                    </div>
+                      </Col>
+                    </Row>
                     <div class="row">
                       <div class="col-sm">
                         <ul class="list-group list-group-horizontal-sm list-group-unbordered">
@@ -205,7 +205,7 @@ const App: Component = () => {
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </Col>
                   <div class="col">
                     <div class="card">
                       <div class="card-body">
@@ -251,9 +251,9 @@ const App: Component = () => {
                     </div>
                   </div >
                 </div >
-              </div >
-            </div >
-          </ >
+              </Card.Body>
+            </Card >
+          </Col>
         </Row>
       </Container >
     </div >
