@@ -1,12 +1,13 @@
 import type { Component } from 'solid-js';
 import styles from './App.module.css';
+import { Col, Container, Row } from 'solid-bootstrap';
 
 const App: Component = () => {
   return (
     <div class={styles.App}>
-      <section>
-        <div class="row">
-          <div class="col-12">
+      <Container>
+        <Row>
+          <Col>
             <div class="card">
               <div class="card-header">
                 <h4 class="card-title">Planilla de Cierre</h4>
@@ -42,17 +43,13 @@ const App: Component = () => {
                     </div>
                     <div class="row">
                       <div class="col-sm">
-                        @if($turnsClosed)
                         <ul class="list-group list-group-horizontal-sm list-group-unbordered">
-                          @foreach($turnsClosed as $turn)
                           <li class="list-group-item">
                             <button class="btn btn-sm btn-block btn-outline-success" title="{{ $turn->GranTotalDineroSumatoriaBruto }}">
                               <span class="badge badge-btn badge-danger"><i class="fas fa-minus"></i> </span>
                             </button>
                           </li>
-                          @endforeach
                         </ul>
-                        @endif
                       </div>
                     </div>
                     <div class="row">
@@ -78,13 +75,11 @@ const App: Component = () => {
                           </div>
                         </div>
                         <ul class="list-group" >
-                          @foreach($deposits as $depositItem)
                           <li class="list-group-item text-right" x-show="openDeposits" x-transition>
                             <button type="button" class="btn btn-flat btn-default btn-sm" >
                               <i class="fas fa-minus-circle fa-fw"></i>
                             </button>
                           </li>
-                          @endforeach
                           <li class="list-group-item text-right">
                             Total: </li>
                         </ul>
@@ -258,9 +253,9 @@ const App: Component = () => {
                 </div >
               </div >
             </div >
-          </div >
-        </div >
-      </section >
+          </ >
+        </Row>
+      </Container >
     </div >
   );
 };
