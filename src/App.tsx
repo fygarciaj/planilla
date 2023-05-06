@@ -1,48 +1,36 @@
 import type { Component } from 'solid-js';
 import styles from './App.module.css';
-import { Card, CardHeader, Col, Container, Row } from 'solid-bootstrap';
+import { Button, Card, CardHeader, Col, Container, Form, Row } from 'solid-bootstrap';
 
 const App: Component = () => {
   return (
-    <div class={styles.App}>
-      <Container>
+    <>
+      <Container fluid>
         <Row>
           <Col>
             <Card>
               <CardHeader>
-                <h4 class="card-title">Planilla de Cierre</h4>
-                <div class="card-tools">
-                  <button type="button" class="btn btn-sm">
-                    <i class="fas fa-trash"></i>
-                  </button>
-                  <button type="button">
-                    <i class="fa fa-address-card" aria-hidden="true"></i>
-                  </button>
-                </div>
+                <Card.Title>Planilla de Cierre</Card.Title>
               </CardHeader>
               <Card.Body>
-                <div class="row row-col-2">
+                <Row>
                   <Col>
                     <Row>
                       <Col>
-                        <div class="form-group">
-                          <div class="input-group">
-                            <input type="text" name="turnIdSearch"
-                              class="is-invalid" />
-                            <div class="input-group-append">
-                              <span class="input-group-text"><i
-                                class="fas fa-plus-circle"></i>
-                              </span>
-                              <span class="input-group-text d-none"><i class="fas fa-spinner fa-spin-pulse"></i>
-                              </span>
-                            </div>
-                          </div>
-                          <small class="text-danger"></small>
-                        </div>
+                        <Form>
+                          <Form.Group>
+                            <Form.Control type="text" name="turnIdSearch"
+                              class="is-invalid" placeholder="C743011" controlId="formIdSearch" />
+                            <Form.Text class="text-danger">
+                              Digite el numero del cierre
+                            </Form.Text>
+                          </Form.Group>
+                          <Button variant='primary' type='submit'>Agregar</Button>
+                        </Form>
                       </Col>
                     </Row>
-                    <div class="row">
-                      <div class="col-sm">
+                    <Row>
+                      <Col >
                         <ul class="list-group list-group-horizontal-sm list-group-unbordered">
                           <li class="list-group-item">
                             <button class="btn btn-sm btn-block btn-outline-success" title="{{ $turn->GranTotalDineroSumatoriaBruto }}">
@@ -50,30 +38,20 @@ const App: Component = () => {
                             </button>
                           </li>
                         </ul>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-sm">
-                        <div class="form-group">
-                          <label class="form-label">Total Turn</label>
-                          <div class="input-group">
-                            <input type="text" class="form-control text-right" />
-                            <div class="input-group-append">
-                              <span class="input-group-text"><i class="fas fa-dollar-sign"></i></span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="form-group">
-                        <label class="form-label">Deposits</label>
-                        <div class="input-group">
-                          <input type="text" class="form-control text-right" />
-                          <div class="input-group-append">
-                            <span class="input-group-text"><i class="fas fa-plus"></i></span>
-                          </div>
-                        </div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col sm>
+                        <Form.Group>
+                          <Form.Label>Total Turn</Form.Label>
+                          <Form.Control type="text" class="form-control text-right" />
+                        </Form.Group>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Form.Group>
+                        <Form.Label>Deposits</Form.Label>
+                        <Form.Control type="text" class="form-control text-right" />
                         <ul class="list-group" >
                           <li class="list-group-item text-right" x-show="openDeposits" x-transition>
                             <button type="button" class="btn btn-flat btn-default btn-sm" >
@@ -81,182 +59,133 @@ const App: Component = () => {
                             </button>
                           </li>
                           <li class="list-group-item text-right">
-                            Total: </li>
+                            Total:
+                          </li>
                         </ul>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="form-group">
-                        <label class="form-label">Caja</label>
-                        <div class="input-group">
-                          <input type="text" class="form-control text-right" id="cash" />
-                          <div class="input-group-append">
-                            <span class="input-group-text"><i class="fas fa-dollar-sign"></i></span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-sm">
-                        <div class="form-group">
-                          <label class="form-label">Creditos</label>
-                          <div class="input-group">
-                            <input type="text" class="form-control text-right" />
-                            <div class="input-group-append">
-                              <span class="input-group-text"><i class="fas fa-dollar-sign"></i></span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-sm">
-                        <div class="form-group">
-                          <label class="form-label">Tarjetas</label>
-                          <div class="input-group">
-                            <input type="text" class="form-control text-right" />
-                            <div class="input-group-append">
-                              <span class="input-group-text"><i class="fas fa-dollar-sign"></i></span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-sm">
-                        <div class="form-group">
-                          <label class="form-label">Bonos</label>
-                          <div class="input-group">
-                            <input type="text" class="form-control text-right" id="bonus" />
-                            <div class="input-group-append">
-                              <span class="input-group-text"><i class="fas fa-dollar-sign"></i></span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-sm">
-                        <div class="form-group">
-                          <label class="form-label">Lubricantes</label>
-                          <div class="input-group">
-                            <input type="text" class="form-control text-right" id="lubricants" />
-                            <div class="input-group-append">
-                              <span class="input-group-text"><i class="fas fa-dollar-sign"></i></span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-sm">
-                        <div class="form-group">
-                          <label class="form-label">Credito Lubricantes</label>
-                          <div class="input-group">
-                            <input type="text" class="form-control text-right" id="lubricantsCredit" />
-                            <div class="input-group-append">
-                              <span class="input-group-text"><i class="fas fa-dollar-sign"></i></span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-sm">
-                        <div class="form-group">
-                          <label class="form-label">Lubricantes Anulado</label>
-                          <div class="input-group">
-                            <input type="text" class="form-control text-right" id="lubricantsNulled" />
-                            <div class="input-group-append">
-                              <span class="input-group-text"><i class="fas fa-dollar-sign"></i></span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="form-group">
-                        <label class="form-label">Expenses</label>
-                        <div class="input-group">
-                          <input type="text" class="form-control text-right" id="expense" />
-                          <div class="input-group-append">
-                            <span class="input-group-text"><i class="fas fa-dollar-sign"></i></span>
-                          </div>
-                        </div>
+                      </Form.Group>
+                    </Row>
+                    <Row>
+                      <Form.Group>
+                        <Form.Label>Caja</Form.Label>
+                        <Form.Control type="text" class="form-control text-right" id="cash" />
+                      </Form.Group>
+                    </Row>
+                    <Row>
+                      <Col sm>
+                        <Form.Group>
+                          <Form.Label>Creditos</Form.Label>
+                          <Form.Control type="text" class="form-control text-right" />                        </Form.Group>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col sm>
+                        <Form.Group>
+                          <Form.Label>Tarjetas</Form.Label>
+                          <Form.Control type="text" class="form-control text-right" />
+                        </Form.Group>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col sm>
+                        <Form.Group>
+                          <Form.Label>Bonos</Form.Label>
+                          <Form.Control type="text" class="form-control text-right" id="bonus" />                        </Form.Group>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col sm>
+                        <Form.Group>
+                          <Form.Label>Lubricantes</Form.Label>
+                          <Form.Control type="text" class="form-control text-right" id="lubricants" />
+                        </Form.Group>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col sm>
+                        <Form.Group>
+                          <Form.Label>Credito Lubricantes</Form.Label>
+                          <Form.Control type="text" class="form-control text-right" id="lubricantsCredit" />
+                        </Form.Group>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col sm>
+                        <Form.Group>
+                          <Form.Label>Lubricantes Anulado</Form.Label>
+                          <Form.Control type="text" class="form-control text-right" id="lubricantsNulled" />
+                        </Form.Group>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Form.Group>
+                        <Form.Label>Gastos</Form.Label>
+                        <Form.Control type="text" class="form-control text-right" id="expense" />
                         <ul class="list-group">
                           <li class="list-group-item"> <i class="fa fa-minus"></i>
                           </li>
                           <li class="list-group-item text-right">
                             <i class="fa fa-minus"></i></li>
                         </ul>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="form-group">
-                        <label class="form-label">Total SpreadSheet</label>
-                        <div class="input-group">
-                          <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="fas fa-dollar-sign"></i></span>
-                          </div>
-                          <input type="numeric" class="form-control text-right" />
-                          <div class="input-group-append">
-                            <span class="input-group-text">.00</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                      </Form.Group>
+                    </Row>
+                    <Row>
+                      <Form.Group>
+                        <Form.Label>Total Planilla</Form.Label>
+                        <Form.Control type="numeric" class="form-control text-right" />
+                      </Form.Group>
+                    </Row>
                   </Col>
-                  <div class="col">
-                    <div class="card">
-                      <div class="card-body">
-                        <div class="row">
-                          <div class="row">
+                  <Col class='d-none'>
+                    <Card>
+                      <Card.Body>
+                        <Row>
+                          <Row>
                             <h6 class="text-center text-black">Hoja de Cierre</h6>
-                          </div>
-                          <div class="row row-cols-2">
-                            <div class="col">
+                          </Row>
+                          <Row>
+                            <Col>
                               <span>Depositos</span>
-                            </div>
-                            <div class="col">
+                            </Col>
+                            <Col>
                               <ul class="list-group text-right border-0 border-bottom">
                                 <li class="list-group-item"></li>
                                 <li class="list-group-item d-flex justify-content-between bg-gray"><span class="text-left">Total</span> <span class="text-right"></span> </li>
                               </ul>
-                            </div>
-                          </div>
-                          <div class="row row-cols-2">
-                            <div class="col">
+                            </Col>
+                          </Row>
+                          <Row>
+                            <Col>
                               <span>Caja</span>
-                            </div>
-                            <div class="col">
+                            </Col>
+                            <Col>
                               <ul class="list-group text-right border-0 border-bottom">
                                 <li class="list-group-item d-flex justify-content-between bg-gray"><span class="text-left">...</span> <span class="text-right"></span> </li>
                               </ul>
-                            </div>
-                          </div>
-                          <div class="row row-cols-2">
-                            <div class="col">
+                            </Col>
+                          </Row>
+                          <Row>
+                            <Col>
                               <span>Total Hoja Cierre</span>
-                            </div>
-                            <div class="col">
+                            </Col>
+                            <Col>
                               <ul class="list-group text-right border-0 border-bottom">
                                 <li class="list-group-item d-flex justify-content-between bg-gray">
                                   <span class="text-left"></span>
                                   <span class="text-right"></span> </li>
                               </ul>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div >
-                </div >
+                            </Col>
+                          </Row>
+                        </Row>
+                      </Card.Body>
+                    </Card >
+                  </Col>
+                </Row>
               </Card.Body>
-            </Card >
+            </Card>
           </Col>
         </Row>
       </Container >
-    </div >
+    </>
   );
 };
 
