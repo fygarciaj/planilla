@@ -1,6 +1,6 @@
 import type { Component } from 'solid-js';
-import styles from './App.module.css';
 import { Button, Card, CardHeader, Col, Container, Form, Row } from 'solid-bootstrap';
+import InputNumericCalc from './Components/InputNumericCalc';
 
 const App: Component = () => {
   return (
@@ -20,8 +20,8 @@ const App: Component = () => {
                         <Form>
                           <Form.Group>
                             <Form.Control type="text" name="turnIdSearch"
-                              class="is-invalid" placeholder="C743011" controlId="formIdSearch" />
-                            <Form.Text class="text-danger">
+                              class="is-invalid" placeholder="C743011" />
+                            <Form.Text class="text-danger" >
                               Digite el numero del cierre
                             </Form.Text>
                           </Form.Group>
@@ -43,14 +43,19 @@ const App: Component = () => {
                     <Row>
                       <Col sm>
                         <Form.Group>
-                          <Form.Label>Total Turn</Form.Label>
-                          <Form.Control type="text" class="form-control text-right" />
+                          <Form.Label>Total Turno</Form.Label>
+                          <Form.Control type="number" class="form-control text-right" />
                         </Form.Group>
                       </Col>
                     </Row>
                     <Row>
+                      <Col>
+                        <InputNumericCalc />
+                      </Col>
+                    </Row>
+                    <Row>
                       <Form.Group>
-                        <Form.Label>Deposits</Form.Label>
+                        <Form.Label>Depositos</Form.Label>
                         <Form.Control type="text" class="form-control text-right" />
                         <ul class="list-group" >
                           <li class="list-group-item text-right" x-show="openDeposits" x-transition>
