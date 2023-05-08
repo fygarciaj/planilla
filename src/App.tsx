@@ -50,7 +50,7 @@ const App: Component = () => {
                     </Row>
                     <Row>
                       <Col>
-                        <InputNumericCalc />
+                        <InputNumericCalc label='Depositos' />
                       </Col>
                     </Row>
                     <Row>
