@@ -45,11 +45,18 @@ const InputNumericCalc: Component = (props) => {
         setShowList(!showList())
     }
 
+    const formatoMoneda = (valor: number) => {
+        return valor.toLocaleString("es-CO", {
+          style: "currency",
+          currency: "COP",
+        });
+      };
+
     return (
         <>
             <Form.Group>
                 <Form.Label for="numericInputCalc">{props.label}</Form.Label>
-                <Form.Control type="number" inputMode="numeric" placeholder="0.00" onKeyPress={(e) => { addDataAcumulate(e) }} id="numericInputCalc" />
+                <Form.Control type="number" inputMode="numeric" placeholder="0.00" onKeyPress={(e) => { addDataAcumulate(e) }} id="numericInputCalc" class="text-right"/>
                 <Form.Control.Feedback type="invalid">
                     Please enter a number
                 </Form.Control.Feedback>
@@ -60,7 +67,7 @@ const InputNumericCalc: Component = (props) => {
                         <>
                             <Show when={!showList()}>
                                 <ListGroup.Item class="d-flex justify-content-end align-items-center" action onClick={delDataAcumulate(index)}>
-                                    {acumulate.value}
+                                    {formatoMoneda(acumulate.value)}
                                     <Fa icon={faDeleteLeft}></Fa>
                                 </ListGroup.Item>
                             </Show>
@@ -68,8 +75,7 @@ const InputNumericCalc: Component = (props) => {
                     }
                 </For>
                 <ListGroup.Item class="d-flex justify-content-end align-items-center" onClick={handleShowList}>
-                    Total: {totalAcumulate()}
-                    <Fa icon={faDeleteLeft}></Fa>
+                    Total {props.label}: {formatoMoneda(totalAcumulate())} <span></span>
                 </ListGroup.Item>
             </ListGroup>
         </>

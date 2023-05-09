@@ -17,27 +17,35 @@ const App: Component = () => {
                   <Col>
                     <Row>
                       <Col>
+                        <Form.Group>
+                          <Form.Label>Fecha</Form.Label>
+                          <Form.Control type="date" placeholder="01/01/2023" />
+                        </Form.Group>
+                        <Form.Group>
+                          <Form.Label>Islero</Form.Label>
+                          <Form.Control type="text" placeholder="Promotor, Islero" />
+                        </Form.Group>
+                      </Col>
+                      <Col>
                         <Form>
                           <Form.Group>
-                            <Form.Control type="text" name="turnIdSearch"
-                              class="is-invalid" placeholder="C743011" />
-                            <Form.Text class="text-danger" >
-                              Digite el numero del cierre
-                            </Form.Text>
+                            <Form.Label>Número del Cierre</Form.Label>
+                            <Form.Control type="text" name="turnIdSearch" placeholder="743011" />
                           </Form.Group>
                           <Button variant='primary' type='submit'>Agregar</Button>
                         </Form>
-                      </Col>
-                    </Row>
-                    <Row>
-                      <Col >
-                        <ul class="list-group list-group-horizontal-sm list-group-unbordered">
-                          <li class="list-group-item">
-                            <button class="btn btn-sm btn-block btn-outline-success" title="{{ $turn->GranTotalDineroSumatoriaBruto }}">
-                              <span class="badge badge-btn badge-danger"><i class="fas fa-minus"></i> </span>
-                            </button>
-                          </li>
-                        </ul>
+                        <Row>
+                          <Col >
+                            <ul class="list-group list-group-horizontal-sm list-group-unbordered">
+                              <li class="list-group-item">
+                                <button class="btn btn-sm btn-block btn-outline-success" title="{{ $turn->GranTotalDineroSumatoriaBruto }}">
+                                  <span class="badge badge-btn badge-danger"><i class="fas fa-minus"></i> </span>
+                                </button>
+                              </li>
+                            </ul>
+                          </Col>
+                        </Row>
+
                       </Col>
                     </Row>
                     <Row>
@@ -54,84 +62,44 @@ const App: Component = () => {
                       </Col>
                     </Row>
                     <Row>
-                      <Form.Group>
-                        <Form.Label>Depositos</Form.Label>
-                        <Form.Control type="text" class="form-control text-right" />
-                        <ul class="list-group" >
-                          <li class="list-group-item text-right" x-show="openDeposits" x-transition>
-                            <button type="button" class="btn btn-flat btn-default btn-sm" >
-                              <i class="fas fa-minus-circle fa-fw"></i>
-                            </button>
-                          </li>
-                          <li class="list-group-item text-right">
-                            Total:
-                          </li>
-                        </ul>
-                      </Form.Group>
-                    </Row>
-                    <Row>
-                      <Form.Group>
-                        <Form.Label>Caja</Form.Label>
-                        <Form.Control type="text" class="form-control text-right" id="cash" />
-                      </Form.Group>
-                    </Row>
-                    <Row>
-                      <Col sm>
-                        <Form.Group>
-                          <Form.Label>Creditos</Form.Label>
-                          <Form.Control type="text" class="form-control text-right" />                        </Form.Group>
+                      <Col>
+                        <InputNumericCalc label='Caja' />
                       </Col>
                     </Row>
                     <Row>
-                      <Col sm>
-                        <Form.Group>
-                          <Form.Label>Tarjetas</Form.Label>
-                          <Form.Control type="text" class="form-control text-right" />
-                        </Form.Group>
+                      <Col>
+                        <InputNumericCalc label='Créditos' />
                       </Col>
                     </Row>
                     <Row>
-                      <Col sm>
-                        <Form.Group>
-                          <Form.Label>Bonos</Form.Label>
-                          <Form.Control type="text" class="form-control text-right" id="bonus" />                        </Form.Group>
+                      <Col>
+                        <InputNumericCalc label='Tarjetas' />
                       </Col>
                     </Row>
                     <Row>
-                      <Col sm>
-                        <Form.Group>
-                          <Form.Label>Lubricantes</Form.Label>
-                          <Form.Control type="text" class="form-control text-right" id="lubricants" />
-                        </Form.Group>
+                      <Col>
+                        <InputNumericCalc label='Bonos' />
                       </Col>
                     </Row>
                     <Row>
-                      <Col sm>
-                        <Form.Group>
-                          <Form.Label>Credito Lubricantes</Form.Label>
-                          <Form.Control type="text" class="form-control text-right" id="lubricantsCredit" />
-                        </Form.Group>
+                      <Col>
+                        <InputNumericCalc label='Lubricantes' />
                       </Col>
                     </Row>
                     <Row>
-                      <Col sm>
-                        <Form.Group>
-                          <Form.Label>Lubricantes Anulado</Form.Label>
-                          <Form.Control type="text" class="form-control text-right" id="lubricantsNulled" />
-                        </Form.Group>
+                      <Col>
+                        <InputNumericCalc label='Crédito Lubricantes' />
                       </Col>
                     </Row>
                     <Row>
-                      <Form.Group>
-                        <Form.Label>Gastos</Form.Label>
-                        <Form.Control type="text" class="form-control text-right" id="expense" />
-                        <ul class="list-group">
-                          <li class="list-group-item"> <i class="fa fa-minus"></i>
-                          </li>
-                          <li class="list-group-item text-right">
-                            <i class="fa fa-minus"></i></li>
-                        </ul>
-                      </Form.Group>
+                      <Col>
+                        <InputNumericCalc label='Lubricantes Anulados' />
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col>
+                        <InputNumericCalc label='Gastos' />
+                      </Col>
                     </Row>
                     <Row>
                       <Form.Group>
